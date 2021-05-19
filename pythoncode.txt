@@ -1,0 +1,186 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[1]:
+
+
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+get_ipython().run_line_magic('matplotlib', 'inline')
+
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+
+# In[2]:
+
+
+path=r"C:\Users\rahul\scores.csv.txt"
+s_data=pd.read_csv(path)
+s_data.head(10)
+
+
+# In[3]:
+
+
+s_data.plot(x='Hours',y='Scores',style='o')
+plt.title('Hours vs score Percentage')
+plt.xlable('Hours studied')
+plt.ylabel('Percentage SCORES')
+plt.show()
+
+
+# In[4]:
+
+
+s_data.plot(x='Hours',y='Scores',style='o')
+plt.title('Hours vs score Percentage')
+plt.xlabel('Hours studied')
+plt.ylabel('Percentage SCORES')
+plt.show()
+
+
+# In[5]:
+
+
+X=s_data.iloc[:, :,-1].values
+y=s_data.iloc[: 1].values
+
+
+# In[6]:
+
+
+X=s_data.iloc[:, :,-1].values
+y=s_data.iloc[:, 1].values
+
+
+# In[7]:
+
+
+X=s_data.iloc[:, : -1].values
+y=s_data.iloc[:, 1].values
+
+
+# In[8]:
+
+
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=0)
+
+
+# In[10]:
+
+
+reg=LinearRegression()
+reg.fit(X_train , y_train)
+
+
+# In[11]:
+
+
+reg=LinearRegression()
+reg.fit(X_train , y_train)
+
+
+# In[12]:
+
+
+reg=LinearRegression()
+reg.fit(X_train , y_train)
+print("trained")
+
+
+# In[13]:
+
+
+l=reg.coef_*X+reg.intercept_
+
+
+# In[14]:
+
+
+plt.scatter(X,y)
+plt.plot(X,l)
+
+
+# In[15]:
+
+
+print(X_test)
+
+
+# In[16]:
+
+
+df=pd.DataFrames({'Actual' : y_test,'Predicted' : y_pred})
+
+
+# In[17]:
+
+
+df=pd.DataFrames({'Actual' : y_test,'Predicted' : y_pred})
+
+
+# In[18]:
+
+
+df=pd.DataFrame({'Actual' : y_test,'Predicted' : y_pred})
+
+
+# In[19]:
+
+
+y_pred=reg.predict(X_test)
+
+
+# In[20]:
+
+
+df=pd.DataFrame({'Actual' : y_test,'Predicted' : y_pred})
+
+
+# In[21]:
+
+
+df
+
+
+# In[22]:
+
+
+h=[9.25]
+my_predict=reg.predict([h])
+print("No. of hours student had studied".format([h]))
+print("Percentage score={}".format(my_predict[0]))
+
+
+# In[24]:
+
+
+h=[9.25]
+my_predict=reg.predict([h])
+print("No. of hours student had studied".format[h])
+print("Percentage score={}".format(my_predict[0]))
+
+
+# In[25]:
+
+
+h=[9.25]
+my_predict=reg.predict([h])
+print("No. of hours student had studied={}".format([h]))
+print("Percentage score={}".format(my_predict[0]))
+
+
+# In[26]:
+
+
+from sklearn import metrics
+print(metrics.mean_absolute_error(y_test,y_pred))
+
+
+# In[ ]:
+
+
+
+
